@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <form style="display: flex;justify-content: center;margin-top: 50px;" onsubmit="return false">
+        <fieldset style="text-align: center;">
+          <legend>Calulate your BMI value</legend>
+          <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">Height</label>
+            <br>
+            <input type="text" id="height">
+          </div>
+          <div class="mb-3">
+            <label for="disabledSelect" class="form-label">Weight</label>
+            <br>
+            <input type="text" id="weight">
+          </div>
+          <div class="mb-3">
+            <label for="disabledSelect" class="form-label">BMI value</label>
+            <br>
+            <input type="text" id="bmivalue">
+            <br><br>
+            <span id="result"></span>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" onclick="checkbmi()">check BMI</button>
+          <br><br>
+          <p> between 18.5 and 24.9 – you're in the healthy weight range</p>
+        </fieldset>
+      </form>
+
+
+      <script>
+        function checkbmi()
+        {
+          var h=document.getElementById("height").value;
+          var w=document.getElementById("weight").value;
+ 
+          h=h*0.305;
+          var bmivalue=w/(h*h);
+          var nv=Math.round(bmivalue);
+          document.getElementById("bmivalue").value=nv;
+          if(nv>=18 && nv<=25)
+          {
+            document.getElementById("result").innerHTML="Congratulation you are healthy";
+            document.getElementById("result").style.color="green";
+            
+          }
+          else if(nv>25)
+          {
+            document.getElementById("result").innerHTML="you are over weight ";
+            document.getElementById("result").style.color="red";
+          }
+          else{
+            document.getElementById("result").innerHTML="you are under weight weight ";
+            document.getElementById("result").style.color="red";
+          }
+ 
+        }
+     </script>
+
+</body>
+</html>
